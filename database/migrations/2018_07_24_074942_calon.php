@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Sesi extends Migration
+class Calon extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Sesi extends Migration
      */
     public function up()
     {
-        Schema::create('sesi', function(Blueprint $table){
+      Schema::create('calon', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('start');
-            $table->date('end');
-            $table->timestamps();
+            $table->string('name');
+            $table->string('icno',12)->unique();
+            $table->string('email',50)->unique();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
