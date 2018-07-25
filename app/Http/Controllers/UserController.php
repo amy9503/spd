@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class UserController extends Controller
 {
-    public function index() {
-    	return view('frontend.index');
+    public function dashboard() {
+    	return view('backend.index');
     }
 
     public function login() {
     	return view('frontend.login');
+    }
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect()->route('home')->withSuccess('Successfully logged out.');
     }
 
     public function register() {
@@ -40,5 +47,21 @@ class UserController extends Controller
         $user->save();
 
         return back()->with('success','Successfully registered!');
+    }
+
+    public function loginPost(Request $request) {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+              if (Auth::attempt($credentials)) {
+                  // Authentication passed...
+                  return redirect()->route('user.dashboard');
+              } else {
+                return back()->withError('Login Failed !');
+              }
     }
 }
