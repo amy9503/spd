@@ -15,10 +15,11 @@ class Sesi extends Migration
     {
         Schema::create('sesi', function(Blueprint $table){
             $table->increments('id');
-            $table->date('start');
-            $table->date('end');
+            $table->string('name');
+            $table->boolean('status')->nullable();
+            $table->string('pingat');
             $table->timestamps();
-            $table->softDeletes();
+            
         });
     }
 
