@@ -4,18 +4,18 @@
 
     <!-- Page Content -->
     
-        <h1>Tambah Sesi</h1><br/>
+        <h1>Tambah Pencalonan</h1><br/>
 
         @include('common.alert')
         @include('common.form_error')
 
-        <form method="POST" action="{{ route('sesi.store') }}">
+        <form method="POST" action="{{ route('pencalonan.store') }}">
           
-          @include('backend.sesi_form')
+          @include('backend.pencalonan_form')
 
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Tambah Sesi</button>
+              <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
           </div>
 

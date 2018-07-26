@@ -19,7 +19,7 @@ class Pencalonan extends Migration
             $table->integer('sesi_id');
             $table->integer('user_id');
             $table->string('asas');
-            $table->string('ulasan');
+            $table->string('ulasan')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
