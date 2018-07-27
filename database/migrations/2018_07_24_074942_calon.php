@@ -17,7 +17,11 @@ class Calon extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('icno',12);
-            $table->string('email',50)->unique();
+            $table->string('email',50);
+            $table->integer('user_id');
+            $table->integer('sesi_id');
+            $table->string('asas');
+            $table->string('ulasan')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

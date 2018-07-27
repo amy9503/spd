@@ -30,6 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    @stack('css')
 </head>
 
 <body>
@@ -280,7 +281,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Pencalonan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Senarai Calon</a>
+                                    <a href="{{ route('pencalonan.index') }}">Senarai Calon</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('pencalonan.create') }}">Tambah Pencalonan</a>
@@ -288,6 +289,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        @role('admin')
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Sesi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -300,7 +302,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-       
+                        @endrole
                       
                     </ul>
                 </div>
@@ -328,6 +330,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('backend/dist/js/sb-admin-2.js') }}"></script>
+
+    @stack('js')
 
 </body>
 

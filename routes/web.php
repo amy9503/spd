@@ -28,9 +28,7 @@ Route::post('/user/register','UserController@registerPost')->name('user.register
 Route::middleware(['auth'])->group(function() {
 	Route::get('/user','UserController@dashboard')->name('user.dashboard');
 
-	Route::resources([
-		'sesi'=>'SesiController',
-		'pencalonan' => 'PencalonanController',
-	]);
-	
+	Route::resource('pencalonan', 'PencalonanController');
+	Route::resource('sesi', 'SesiController')->middleware('role:admin');
+
 });
